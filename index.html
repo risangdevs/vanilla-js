@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      nav li {
+        margin-right: 20px;
+      }
+      span{
+        font-weight: 100;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+      main {
+        max-width: 1200px;
+        margin: 20px auto auto 10px;
+        padding: 20px;
+      }
+      .product {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 40px auto;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        border-width: 2px;
+      }
+      ul .overview{
+        width: 300px;
+      }
+      .col-1 {
+        width: 100px;
+        margin: auto;
+      }
+      .col-2 {
+        width: 500px;
+        margin: auto;
+      }
+      .col-3 {
+        width: 100px;
+        margin: auto;
+      }
+      img {
+        max-width: 400px;
+        margin-right: 20px;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin: 0;
+      }
+
+      p {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+      .separator {
+        width: 200;
+        background: #07006b;
+        height: 1px;margin: 10px auto;
+      }
+
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My E-commerce Store</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main></main>
+    <footer>
+      <p>&copy; 2023 My E-commerce Store. All rights reserved.</p>
+    </footer>
+    <script>
+      const products = [
+        {
+          id: 1,
+          rating: 9,
+          name: "HATHASPACE HSP003 Air Purifier",
+          price: 10,
+          particleRemoval: "99.9% down to 0.25 microns",
+          filterType: "H13 True HEPA",
+          dimensions: `26.79" wide x 14.02" deep x 14.02" tall`,
+          coverage: "2,800 sq ft in 1 Hour",
+          effectiveFor: "allergens, dust, odors, smokes, viruses, VOCs",
+          imgUrl:
+            "https://images.buyersguide.org/tr:if-w_gt_168,w-168,if-end/images/26975444/product_44457962_6299081eac142415eQISdtGL._SL500_.jpeg",
+        },
+        {
+          id: 2,
+          rating: 10,
+          name: "HATHASPACE 2.0 Smart True HEPA Air Purifier",
+          price: 20,
+          particleRemoval: "99.9% down to 0.1 microns",
+          filterType: "H13 True HEPA",
+          dimensions: `16.5" wide x 9.5" deep x 27.2" tall`,
+          coverage: "1,500 sq ft in 1 Hour",
+          effectiveFor: "allergens, dust, odors, smokes, viruses, VOCs",
+          imgUrl:
+            "https://images.buyersguide.org/tr:if-w_gt_168,w-168,if-end/images/0819753/product_3579180_60ca337a8155f31zySoO3TFL._SL500_.jpeg",
+        },
+        {
+          id: 3,
+          rating: 7,
+          name: "WELOV Air Purifier",
+          price: 30,
+          particleRemoval: "99.9% down to 0.3 microns",
+          filterType: "HEPA",
+          dimensions: `11" wide x 11" deep x 21" tall`,
+          coverage: "1,077 sq ft in 1 Hour",
+          effectiveFor: "pet hair, pet danders, pollen, dust, smoke and odors",
+          imgUrl:
+            "https://images.buyersguide.org/tr:if-w_gt_168,w-168,if-end/images/213901811/product_product_image_118109312_642aea9268240ga.jpeg",
+        },
+      ];
+
+      const main = document.querySelector("main");
+
+      products.forEach((product) => {
+        let divItem = document.createElement("div");
+        divItem.classList.add("product");
+        divItem.innerHTML = `
+            <div class="col-1">
+                <img src=${product.imgUrl} alt="product image"/>
+            </div>
+            <div class="col-2">
+                <h2><span>Rating:</span> ${product.rating}</h2>
+                <div class="separator"></div>
+                <p>${product.name}</p>
+                <ul class="overview">
+                    <li>Coverage: <span>${product.coverage}</span></li>
+                    <li>Particle Removal: <span>${product.particleRemoval}</span></li>
+                    <li>Filter Type: <span>${product.filterType}</span></li>
+                    <li>Effective For: <span>${product.effectiveFor}</span></li>
+                    <li>Dimensions: <span>${product.dimensions}</span></li>
+                </ul>
+                    
+            </div>
+            <div class="col-3">
+                <button>Add to Cart</button>
+            </div>
+          `;
+        main.appendChild(divItem);
+      });
+    </script>
+  </body>
+</html>
